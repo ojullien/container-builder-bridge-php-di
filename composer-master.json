@@ -1,0 +1,54 @@
+{
+  "name": "oseille/container-builder-bridge-php-di",
+  "description": "A concrete implementation of the Container Builder Bridge using league/container.",
+  "keywords": ["bridge", "builder", "php-di", "container"],
+  "homepage": "https://github.com/oseille/container-builder-bridge-php-di",
+  "readme": "README.md",
+  "time": "2020-04-28",
+  "license": "MIT",
+  "support": {
+    "issues": "https://github.com/oseille/container-builder-bridge-php-di/issues",
+    "source": "https://github.com/oseille/container-builder-bridge-php-di",
+    "rss": "https://github.com/oseille/container-builder-bridge-php-di/releases.atom"
+  },
+  "authors": [
+    {
+      "name": "Olivier Jullien",
+      "homepage": "https://github.com/ojullien",
+      "email": "ojullien@netcourrier.com"
+    }
+  ],
+  "repositories": [
+    {
+      "type": "github",
+      "url": "https://github.com/oseille/container-builder-bridge"
+    }
+  ],
+  "require": {
+    "php": "^7.4",
+    "league/container": "^3.3",
+    "oseille/container-builder-bridge": "^1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Oseille\\ContainerBuilderBridge\\League\\": "src/"
+    }
+  },
+  "require-dev": {
+    "pbraiders/stdlib": "^2.0",
+    "php-coveralls/php-coveralls": "^2.2",
+    "phpunit/phpunit": "^9.1"
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "OseilleTest\\": "tests/"
+    }
+  },
+  "config": {
+    "sort-packages": true,
+    "optimize-autoloader": true
+  },
+  "scripts": {
+    "test": "vendor/bin/phpunit --configuration ./phpunit.xml --coverage-clover build/logs/clover.xml"
+  }
+}
