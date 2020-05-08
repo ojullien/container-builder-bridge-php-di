@@ -39,7 +39,7 @@ $container_builder->useAutowiring(false);
 $container_builder->useAnnotations(false);
 
 // Instanciates the implementor to use thru the bridge builder
-$bridge_builder = new \Oseille\ContainerBuilderBridge\League\Implementor($container_builder);
+$bridge_builder = new \Oseille\ContainerBuilderBridge\PHPDI\Implementor($container_builder);
 
 // Adds the definitions to the builder
 $bridge_builder->addDefinitions($definitions);
