@@ -39,7 +39,7 @@ final class Implementor implements ImplementorInterface
     /**
      * Builds and returns the PSR-11 container.
      *
-     * @return \Psr\Container\ContainerInterface
+     * @return \DI\Container
      */
     public function build(): ContainerInterface
     {
@@ -57,8 +57,10 @@ final class Implementor implements ImplementorInterface
      * ]
      *
      * @param array<int,array> $definitions,... The definitions.
+     *
      * @throws \InvalidArgumentException if $definitions is not an array
-     * @return \Oseille\ContainerBuilderBridge\ImplementorInterface
+     *
+     * @return self
      */
     public function addDefinitions(...$definitions): ImplementorInterface
     {

@@ -1,10 +1,10 @@
 {
   "name": "oseille/container-builder-bridge-php-di",
-  "description": "A concrete implementation of the Container Builder Bridge using league/container.",
+  "description": "A concrete implementation of the Container Builder Bridge using php-di/php-di.",
   "keywords": ["bridge", "builder", "php-di", "container"],
   "homepage": "https://github.com/oseille/container-builder-bridge-php-di",
   "readme": "README.md",
-  "time": "2020-04-28",
+  "time": "2020-05-09",
   "license": "MIT",
   "support": {
     "issues": "https://github.com/oseille/container-builder-bridge-php-di/issues",
@@ -26,17 +26,16 @@
   ],
   "require": {
     "php": "^7.4",
-    "league/container": "^3.3",
-    "oseille/container-builder-bridge": "^1.0"
+    "oseille/container-builder-bridge": "^1.0",
+    "php-di/php-di": "^6.1"
   },
   "autoload": {
     "psr-4": {
-      "Oseille\\ContainerBuilderBridge\\League\\": "src/"
+      "Oseille\\ContainerBuilderBridge\\PHPDI\\": "src/"
     }
   },
   "require-dev": {
-    "pbraiders/stdlib": "^2.0",
-    "php-coveralls/php-coveralls": "^2.2",
+    "phpunit/php-invoker": "^3.0",
     "phpunit/phpunit": "^9.1"
   },
   "autoload-dev": {
@@ -49,6 +48,6 @@
     "optimize-autoloader": true
   },
   "scripts": {
-    "test": "vendor/bin/phpunit --configuration ./phpunit.xml --coverage-clover build/logs/clover.xml"
+    "test": "vendor/bin/phpunit --configuration .phpunit.xml --coverage-clover build/clover.xml"
   }
 }
