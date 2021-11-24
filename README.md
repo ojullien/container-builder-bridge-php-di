@@ -43,7 +43,7 @@ $builder->useAnnotations(false);
 $implementation = new \OJullien\ContainerBuilderBridge\PHPDI\Implementation($builder);
 
 // Instanciates the bridge
-$bridge = new \OJullien\ContainerBuilderBridge\PHPDI\Builder($implementation);
+$bridge = new \OJullien\ContainerBuilderBridge\Builder($implementation);
 
 // Create definitions using sequences
 $sequence = Sequence::getSequence();
