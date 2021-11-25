@@ -36,7 +36,7 @@ $builder = new \DI\ContainerBuilder();
 // Configures the container builder if needed
 $builder->enableCompilation(__DIR__ . '/tmp');
 $builder->writeProxiesToFile(true, __DIR__ . '/tmp/proxies');
-$builder->useAutowiring(false);
+$builder->useAutowiring(true);
 $builder->useAnnotations(false);
 
 // Instanciates the implementation to use thru the bridge builder

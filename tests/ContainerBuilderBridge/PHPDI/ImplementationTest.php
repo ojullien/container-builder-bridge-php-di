@@ -8,6 +8,7 @@ use DI\ContainerBuilder;
 use OJullien\ContainerBuilderBridge\Definition\Sequence;
 use OJullien\ContainerBuilderBridge\PHPDI\Implementation;
 use Psr\Container\ContainerInterface;
+use function DI\create;
 
 class ImplementationTest extends \PHPUnit\Framework\TestCase
 {
@@ -43,19 +44,26 @@ class ImplementationTest extends \PHPUnit\Framework\TestCase
                     return 'connect ' . (string) $container->get('database.host') . ':' . (string) $container->get('database.port');
                 }
             );
-        self::assertCount(1, $pSequenceAsFactories, 'Sequence as factories count.');
+
+        // Definition as Objects
+        //$pSequenceAsObjects = Sequence::getSequence()->withDefinition(\stdClass::class, create());
 
         $pBuilder = new ContainerBuilder();
-        $pBuilder->useAutowiring(false);
+        $pBuilder->useAutowiring(true);
         $pBuilder->useAnnotations(false);
         $pImplementation = new Implementation($pBuilder);
         $pImplementation->setDefinitions($pSequenceAsValues, $pSequenceAsFactories);
         $pContainer = $pImplementation->build();
-        self::assertInstanceOf(\Psr\Container\ContainerInterface::class, $pContainer);
         self::assertTrue($pContainer->has('database.host'), 'container has database.host');
         self::assertTrue($pContainer->has('database.port'), 'container has database.port');
         self::assertTrue($pContainer->has('report.recipients'), 'container has report.recipients');
+
         self::assertTrue($pContainer->has('factory'), 'container has factory');
         self::assertSame('connect localhost:5000', $pContainer->get('factory'), "Factory test");
+
+        //$pObject1 = $pContainer->get(\stdClass::class);
+        //self::assertInstanceOf(\stdClass::class, $pObject1);
+        //$pObject2 = $pContainer->get(\stdClass::class);
+        //self::assertNotSame($pObject1, $pObject2, 'Object are not the same');
     }
 }
