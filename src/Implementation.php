@@ -33,7 +33,7 @@ final class Implementation implements ImplementationInterface
     /**
      * Builds and returns the PSR-11 container.
      *
-     * @return \DI\Container
+     * @return \Psr\Container\ContainerInterface
      */
     public function build(): ContainerInterface
     {
