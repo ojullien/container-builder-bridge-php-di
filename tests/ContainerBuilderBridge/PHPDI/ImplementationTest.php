@@ -8,6 +8,7 @@ use DI\ContainerBuilder;
 use OJullien\ContainerBuilderBridge\Definition\Sequence;
 use OJullien\ContainerBuilderBridge\PHPDI\Implementation;
 use Psr\Container\ContainerInterface;
+
 use function DI\create;
 
 class ImplementationTest extends \PHPUnit\Framework\TestCase
@@ -19,9 +20,9 @@ class ImplementationTest extends \PHPUnit\Framework\TestCase
      * @group specification
      * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      * @throws \PHPUnit\Framework\Exception
-     * @throws \DI\DependencyException
-     * @throws \DI\NotFoundException
-     * @throws \InvalidArgumentException
+     * @throws \PHPUnit\Framework\ExpectationFailedException
+     * @throws \Psr\Container\NotFoundExceptionInterface
+     * @throws \Psr\Container\ContainerExceptionInterface
      */
     public function testImplementation(): void
     {
